@@ -20,9 +20,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 font-sans">
+    <div className="min-h-screen bg-white text-gray-800 font-sans min-w-screen">
       {/* Navbar */}
-      <nav className="fixed w-full top-0 left-0 bg-blue-900 text-white shadow-md z-40">
+      <nav className="w-full min-w-screen top-0 left-0 bg-blue-900 text-white shadow-md z-40">
         <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between px-4 py-3">
           <div className="flex items-center space-x-2">
             <Link href="#" className="flex items-center">
@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
-        className="bg-blue-100 bg-cover bg-center py-20 md:py-28 px-4 text-center mt-16"
+        className="bg-blue-100 bg-cover bg-center py-20 md:py-28 px-4 text-center"
         style={{ backgroundImage: "url('/background.jpg')" }}
         data-aos="fade-up"
       >
