@@ -4,8 +4,5 @@
       "src": "package.json",
       "use": "@vercel/node"
     }
-  ],
-  "env": {
-    "NEXT_PUBLIC_API_URL": "https://your-api-url"
-  }
+  ]
 }
