@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans min-w-screen">
       {/* Navbar */}
-      <nav className="w-full min-w-screen top-0 left-0 bg-blue-900 text-white shadow-md z-40">
+      <nav className="fixed w-full min-w-screen top-0 left-0 bg-blue-900 text-white shadow-md z-40">
         <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between px-4 py-3">
           <div className="flex items-center space-x-2">
             <Link href="#" className="flex items-center">
