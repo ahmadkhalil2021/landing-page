@@ -226,7 +226,7 @@ export default function Home() {
                 alt={`Cleaning Example ${i + 1}`}
                 width={500}
                 height={500}
-                className="w-full h-auto object-cover rounded shadow-lg"
+                className="w-full object-cover rounded shadow-lg h-64"
                 data-aos={i % 3 === 0 ? "fade-right" : i % 3 === 1 ? "fade-up" : "fade-left"}
               />
             ))}
