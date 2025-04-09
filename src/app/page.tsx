@@ -26,7 +26,7 @@ export default function Home() {
           <div className="flex items-center space-x-2">
             <Link href="#" className="flex items-center">
               <Image
-                src={"/favicon.ico"} // Replace with your logo path
+                src={"/logo.ico"} // Replace with your logo path
                 alt="Company Logo"
                 width={500}
                 height={500}
