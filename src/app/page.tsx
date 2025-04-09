@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import Link from "next/link";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState<number | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(10, 10);
@@ -22,45 +24,81 @@ export default function Home() {
     <div className="min-h-screen bg-white text-gray-800 font-sans">
       {/* Navbar */}
       <nav className="fixed w-full top-0 left-0 bg-blue-900 text-white shadow-md z-50">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-          <div className="flex items-center space-x-2">
-            <Link href="#" className="flex items-center">
-              <Image
-                src={"/logo.ico"} // Replace with your logo path
-                alt="Company Logo"
-                width={500}
-                height={500}
-                className="w-14 h-10 object-contain"
-              />
-            </Link>
-            <Link href="#" className="text-2xl font-bold">
-              SparkleClean
-            </Link>
-          </div>
-          <ul className="flex space-x-6">
-            <li>
-              <Link href="#services" className="hover:text-blue-300">
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="#about" className="hover:text-blue-300">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="#galary" className="hover:text-blue-300">
-                Galary
-              </Link>
-            </li>
-            <li>
-              <Link href="#contact" className="hover:text-blue-300">
-                Contact
-              </Link>
-            </li>
-          </ul>
+      <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+        {/* Logo & Name */}
+        <div className="flex items-center space-x-2">
+          <Link href="#" className="flex items-center">
+            <Image
+              src={"/logo.ico"}
+              alt="Company Logo"
+              width={500}
+              height={500}
+              className="w-14 h-10 object-contain"
+            />
+          </Link>
+          <Link href="#" className="text-2xl font-bold">
+            SparkleClean
+          </Link>
         </div>
-      </nav>
+
+        {/* Hamburger Icon */}
+        <div className="md:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-6">
+          <li>
+            <Link href="#services" className="hover:text-blue-300">
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link href="#about" className="hover:text-blue-300">
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link href="#galary" className="hover:text-blue-300">
+              Galary
+            </Link>
+          </li>
+          <li>
+            <Link href="#contact" className="hover:text-blue-300">
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <ul className="md:hidden flex flex-col bg-blue-800 px-4 pb-4 space-y-2">
+          <li>
+            <Link href="#services" className="hover:text-blue-300" onClick={() => setMenuOpen(false)}>
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link href="#about" className="hover:text-blue-300" onClick={() => setMenuOpen(false)}>
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link href="#galary" className="hover:text-blue-300" onClick={() => setMenuOpen(false)}>
+              Galary
+            </Link>
+          </li>
+          <li>
+            <Link href="#contact" className="hover:text-blue-300" onClick={() => setMenuOpen(false)}>
+              Contact
+            </Link>
+          </li>
+        </ul>
+      )}
+    </nav>
 
       {/* Hero Section */}
       <section
