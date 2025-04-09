@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState<number | null>(null);
@@ -25,7 +24,6 @@ export default function Home() {
       {/* Navbar */}
       <nav className="fixed w-full top-0 left-0 bg-blue-900 text-white shadow-md z-50">
       <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-        {/* Logo & Name */}
         <div className="flex items-center space-x-2">
           <Link href="#" className="flex items-center">
             <Image
@@ -41,12 +39,34 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Hamburger Icon */}
-        <div className="md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
+        {/* Hamburger Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden focus:outline-none"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {menuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
@@ -75,24 +95,24 @@ export default function Home() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <ul className="md:hidden flex flex-col bg-blue-800 px-4 pb-4 space-y-2">
+        <ul className="md:hidden bg-blue-800 px-4 pb-4 space-y-2">
           <li>
-            <Link href="#services" className="hover:text-blue-300" onClick={() => setMenuOpen(false)}>
+            <Link href="#services" className="block hover:text-blue-300">
               Services
             </Link>
           </li>
           <li>
-            <Link href="#about" className="hover:text-blue-300" onClick={() => setMenuOpen(false)}>
+            <Link href="#about" className="block hover:text-blue-300">
               About Us
             </Link>
           </li>
           <li>
-            <Link href="#galary" className="hover:text-blue-300" onClick={() => setMenuOpen(false)}>
+            <Link href="#galary" className="block hover:text-blue-300">
               Galary
             </Link>
           </li>
           <li>
-            <Link href="#contact" className="hover:text-blue-300" onClick={() => setMenuOpen(false)}>
+            <Link href="#contact" className="block hover:text-blue-300">
               Contact
             </Link>
           </li>
