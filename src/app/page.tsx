@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import Link from "next/link";
 import Image from "next/image";
+import WhatsappButton from "./whatsapp";
 
 export default function Home() {
+  let navBar = ["services", "pricing", "about", "galary", "contact"];
   const [currentYear, setCurrentYear] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -70,7 +72,7 @@ export default function Home() {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6">
-            {["services", "about", "galary", "contact"].map((item) => (
+            {navBar.map((item) => (
               <li key={item}>
                 <Link href={`#${item}`} className="hover:text-blue-300">
                   {item.charAt(0).toUpperCase() + item.slice(1)}
@@ -83,9 +85,12 @@ export default function Home() {
         {/* Mobile Menu */}
         {menuOpen && (
           <ul className="md:hidden bg-blue-800 px-4 pb-4 space-y-2">
-            {["services", "about", "galary", "contact"].map((item) => (
+            {navBar.map((item) => (
               <li key={item}>
-                <Link href={`#${item}`} className="block py-2 hover:text-blue-300">
+                <Link
+                  href={`#${item}`}
+                  className="block py-2 hover:text-blue-300"
+                >
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                 </Link>
               </li>
@@ -100,7 +105,7 @@ export default function Home() {
         style={{ backgroundImage: "url('/background.jpg')" }}
         data-aos="fade-up"
       >
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-blue-900">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-blue-900 mt-20">
           Sparkling Clean, Every Time
         </h1>
         <p className="text-base sm:text-lg md:text-xl mt-4 text-blue-800">
@@ -118,14 +123,26 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-12" data-aos="fade-up">
+          <h2
+            className="text-2xl sm:text-3xl font-bold mb-12"
+            data-aos="fade-up"
+          >
             Our Services
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
-              { title: "Home Cleaning", text: "Regular or deep cleaning for your home." },
-              { title: "Office Cleaning", text: "Maintain a spotless and productive workspace." },
-              { title: "Move In/Out", text: "Make your move stress-free with a thorough clean." },
+              {
+                title: "Home Cleaning",
+                text: "Regular or deep cleaning for your home.",
+              },
+              {
+                title: "Office Cleaning",
+                text: "Maintain a spotless and productive workspace.",
+              },
+              {
+                title: "Move In/Out",
+                text: "Make your move stress-free with a thorough clean.",
+              },
             ].map((service, i) => (
               <div
                 key={service.title}
@@ -143,7 +160,10 @@ export default function Home() {
       {/* Testimonials */}
       <section id="testimonials" className="py-20 px-4 bg-blue-50">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-12" data-aos="fade-up">
+          <h2
+            className="text-2xl sm:text-3xl font-bold mb-12"
+            data-aos="fade-up"
+          >
             What Our Clients Say
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -177,14 +197,29 @@ export default function Home() {
       {/* Pricing */}
       <section id="pricing" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-12" data-aos="fade-up">
+          <h2
+            className="text-2xl sm:text-3xl font-bold mb-12"
+            data-aos="fade-up"
+          >
             Affordable Pricing
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
-              { title: "Basic Cleaning", price: "$99", desc: "Ideal for small homes or light office cleaning." },
-              { title: "Deep Cleaning", price: "$199", desc: "Thorough cleaning needing extra care." },
-              { title: "Move In/Out", price: "$299", desc: "Complete cleaning during a move." },
+              {
+                title: "Basic Cleaning",
+                price: "$99",
+                desc: "Ideal for small homes or light office cleaning.",
+              },
+              {
+                title: "Deep Cleaning",
+                price: "$199",
+                desc: "Thorough cleaning needing extra care.",
+              },
+              {
+                title: "Move In/Out",
+                price: "$299",
+                desc: "Complete cleaning during a move.",
+              },
             ].map((plan, i) => (
               <div
                 key={plan.title}
@@ -203,11 +238,17 @@ export default function Home() {
       {/* About Us */}
       <section id="about" className="bg-blue-50 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6" data-aos="fade-up">
+          <h2
+            className="text-2xl sm:text-3xl font-bold mb-6"
+            data-aos="fade-up"
+          >
             Why Choose Us?
           </h2>
           <p className="text-base sm:text-lg text-gray-700">
-            With over 10 years of experience, SparkleClean brings professionalism, reliability, and quality service to every job. We use eco-friendly products and guarantee satisfaction with every clean.
+            With over 10 years of experience, SparkleClean brings
+            professionalism, reliability, and quality service to every job. We
+            use eco-friendly products and guarantee satisfaction with every
+            clean.
           </p>
         </div>
       </section>
@@ -215,11 +256,21 @@ export default function Home() {
       {/* Gallery */}
       <section id="galary" className="bg-white py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6" data-aos="fade-up">
+          <h2
+            className="text-2xl sm:text-3xl font-bold mb-6"
+            data-aos="fade-up"
+          >
             Our Work
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {["cleaning1.jpg", "cleaning2.jpg", "cleaning3.jpg", "cleaning3.jpg", "cleaning1.jpg", "cleaning2.jpg"].map((img, i) => (
+            {[
+              "cleaning1.jpg",
+              "cleaning2.jpg",
+              "cleaning3.jpg",
+              "cleaning3.jpg",
+              "cleaning1.jpg",
+              "cleaning2.jpg",
+            ].map((img, i) => (
               <Image
                 key={i}
                 src={`/${img}`}
@@ -227,7 +278,13 @@ export default function Home() {
                 width={500}
                 height={500}
                 className="w-full object-cover rounded shadow-lg h-64"
-                data-aos={i % 3 === 0 ? "fade-right" : i % 3 === 1 ? "fade-up" : "fade-left"}
+                data-aos={
+                  i % 3 === 0
+                    ? "fade-right"
+                    : i % 3 === 1
+                    ? "fade-up"
+                    : "fade-left"
+                }
               />
             ))}
           </div>
@@ -237,7 +294,10 @@ export default function Home() {
       {/* Contact */}
       <section id="contact" className="py-20 px-4 bg-blue-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6" data-aos="fade-up">
+          <h2
+            className="text-2xl sm:text-3xl font-bold mb-6"
+            data-aos="fade-up"
+          >
             Contact Us
           </h2>
           <p className="mb-6">Ready to make your space sparkle? Let’s talk!</p>
@@ -269,6 +329,9 @@ export default function Home() {
           </form>
         </div>
       </section>
+      <div>
+        <WhatsappButton />
+      </div>
 
       {/* Footer */}
       <footer className="bg-blue-900 text-white py-6 text-center">
