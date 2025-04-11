@@ -368,7 +368,7 @@ export default function Home() {
                     <span className="text-xl">
                       {platform === "facebook" ? (
                         <FaFacebook />
-                      ) : platform === "twitter" ? (
+                      ) : platform === "x" ? (
                         <FaTwitter />
                       ) : platform === "instagram" ? (
                         <FaInstagram />
