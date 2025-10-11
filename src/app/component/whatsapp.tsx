@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 const WhatsappButton = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  const phoneNumber = "4915209773360"; // E.g. 491234567890
+  const phoneNumber = "491234567890"; // E.g. 491234567890
   const message = "Hello! I saw your website and want to chat.";
 
   useEffect(() => {

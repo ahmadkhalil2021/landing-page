@@ -154,6 +154,9 @@ const Contact = () => {
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
+              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-colors shadow-md">
+                <a target="_blank" href="https://appointmentask.vercel.app">Reserve an Appointment</a>
+              </button>
             </form>
           </div>
 
