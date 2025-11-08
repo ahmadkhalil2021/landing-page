@@ -154,9 +154,13 @@ const Contact = () => {
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
-              <a target="_blank" href="https://sparkleclean-appointment.askpicloud.de/" 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-31 rounded-lg transition-colors shadow-md">
-                  Reserve an Appointment
+
+              <a
+                target="_blank"
+                href="https://sparkleclean-appointment.askpicloud.de/"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-colors shadow-md text-center block"
+              >
+                Reserve an Appointment
               </a>
             </form>
           </div>
